@@ -28,6 +28,9 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
             onClick { it ->
                /* Navigation.findNavController(requireView()).navigate(
                     action_f1PilotListFragment_to_detailF1PilotFragment, DetailF1PilotFragmentArgs(it.id).toBundle())*/
+
+                Navigation.findNavController(requireView()).navigate(R.id.detailF1PilotFragment)
+
             }
         }
     }

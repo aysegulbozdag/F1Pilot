@@ -29,9 +29,7 @@
         android:label="DetailF1PilotFragment"
         tools:layout="@layout/fragment_detail_f1_pilot">
         <argument
-            android:name="id"
-            android:defaultValue="0"
-            app:argType="Integer" />
+            android:name="id" />
     </fragment>
 
 </navigation>
