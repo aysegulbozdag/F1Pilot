@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">F1Pilot</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="loading_data_from_remote">Loading data...</string>
+</resources>

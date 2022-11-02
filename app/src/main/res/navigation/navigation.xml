@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.android.f1pilot.ui.splash.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_f1PilotListFragment"
+            app:destination="@id/f1PilotListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/f1PilotListFragment"
+        android:name="com.example.android.f1pilot.ui.main.MainFragment"
+        android:label="fragment_f1_pilot_list"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_f1PilotListFragment_to_detailF1PilotFragment"
+            app:destination="@id/detailF1PilotFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailF1PilotFragment"
+        android:name="com.example.android.f1pilot.ui.detail.DetailF1PilotFragment"
+        android:label="DetailF1PilotFragment"
+        tools:layout="@layout/fragment_detail_f1_pilot">
+        <argument
+            android:name="id"
+            android:defaultValue="0"
+            app:argType="Integer" />
+    </fragment>
+
+</navigation>
