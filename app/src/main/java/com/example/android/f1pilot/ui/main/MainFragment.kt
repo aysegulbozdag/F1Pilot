@@ -1,20 +1,19 @@
 package com.example.android.f1pilot.ui.main
 
 import android.util.Log
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.*
-import androidx.navigation.Navigation
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.example.android.f1pilot.R
-import com.example.android.f1pilot.R.id.action_f1PilotListFragment_to_detailF1PilotFragment
 import com.example.android.f1pilot.data.model.F1Pilot
 import com.example.android.f1pilot.databinding.FragmentMainBinding
-import com.example.android.f1pilot.ui.detail.DetailF1PilotFragment
-import com.example.android.f1pilot.ui.detail.DetailF1PilotFragmentArgs
-import com.example.android.f1pilot.util.custom.GenericAdapter
+import com.example.android.f1pilot.util.Result
 import com.example.android.f1pilot.util.base.BaseDiffUtilItemCallback
 import com.example.android.f1pilot.util.base.BaseFragment
-import com.example.android.f1pilot.util.Result
+import com.example.android.f1pilot.util.custom.GenericAdapter
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
@@ -26,11 +25,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
             BaseDiffUtilItemCallback<F1Pilot>()
         ) {
             onClick { it ->
-               /* Navigation.findNavController(requireView()).navigate(
-                    action_f1PilotListFragment_to_detailF1PilotFragment, DetailF1PilotFragmentArgs(it.id).toBundle())*/
-
-                Navigation.findNavController(requireView()).navigate(R.id.detailF1PilotFragment)
-
+                view?.findNavController()?.navigate(R.id.detailF1PilotFragment, bundleOf("id" to it.id))
             }
         }
     }

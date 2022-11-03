@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="model"
             type="com.example.android.f1pilot.data.model.F1PilotDetail" />
     </data>
 
@@ -27,6 +27,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/team"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -34,7 +35,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@{viewModel.team}"
+                android:text="@{model.team}"
                 tools:text="Ferrari" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -47,7 +48,6 @@
             android:src="@drawable/f1_pilot"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="icon"
             app:layout_editor_absoluteY="100dp" />
 
 
