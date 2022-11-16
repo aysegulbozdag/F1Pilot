@@ -27,6 +27,9 @@ class F1PilotListViewModel @Inject constructor(private val repository: F1PilotLi
                 _f1PilotList.value = it
             }
         }
+    }
+
+    fun addOrRemoveFav(){
 
     }
 

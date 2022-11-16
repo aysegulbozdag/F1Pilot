@@ -17,21 +17,21 @@ class DetailF1PilotFragment : BaseFragment<FragmentDetailF1PilotBinding, F1Pilot
     private val args: DetailF1PilotFragmentArgs by navArgs()
 
     override fun onFragmentStarted() {
-        val a = args.id
-        getDataBinding().team.text = a.toString()
-       /* val window: Window = requireActivity().window
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = ContextCompat.getColor(requireActivity(), R.color.navy)*/
 
-        viewModel.f1PilotDetail.observe(this) {
-            when (it.status) {
+        viewModel.getDetail(args.id)
+        initObserve()
+
+    }
+
+    private fun initObserve(){
+        viewModel.f1PilotDetail.observe(this) { result ->
+            when (result.status) {
                 Result.Status.SUCCESS -> {
+                    getDataBinding().model = result.data
                     hideProgress()
-                    getDataBinding().model = it.data
                 }
                 Result.Status.ERROR -> {
-                    it.message?.let {
+                    result.message?.let {
                         Log.e("ERROR : ", it)
                     }
                     hideProgress()
@@ -40,8 +40,4 @@ class DetailF1PilotFragment : BaseFragment<FragmentDetailF1PilotBinding, F1Pilot
             }
         }
     }
-
-
-
-
 }

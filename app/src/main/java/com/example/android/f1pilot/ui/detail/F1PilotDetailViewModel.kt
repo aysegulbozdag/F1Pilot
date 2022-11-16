@@ -15,19 +15,15 @@ import javax.inject.Inject
 class F1PilotDetailViewModel @Inject constructor(private val repository: F1PilotListRepo) :
     ViewModel() {
     private val _f1PilotDetail = MutableLiveData<Result<F1PilotDetail>>()
-    val f1PilotDetail : LiveData<Result<F1PilotDetail>> = _f1PilotDetail
+    val f1PilotDetail: LiveData<Result<F1PilotDetail>> = _f1PilotDetail
 
-    init {
-        getDetail(1)
-    }
 
-    private fun getDetail(id:Int) {
+    fun getDetail(id: Int) {
         viewModelScope.launch {
             repository.getF1PilotDetail(id).collect {
                 _f1PilotDetail.value = it
             }
         }
-
     }
 
 }

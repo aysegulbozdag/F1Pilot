@@ -5,9 +5,9 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
 @BindingAdapter("loadImage")
-fun setPosterMovie(iv: ImageView, url:String?) {
+fun setImageF1Pilot(iv: ImageView, url:String?) {
     Glide.with(iv.context)
-        .load("http://image.tmdb.org/t/p/w500$url")
+        .load(url)
         .centerCrop()
         .into(iv)
 }
