@@ -83,7 +83,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@{entity.fav == true ? @drawable/ic_baseline_favorite_24 : @drawable/ic_baseline_favorite_border_24}" />
+            loadFav="@{viewData.fav}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -24,8 +24,9 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
             R.layout.item_f1_pilot_list,
             BaseDiffUtilItemCallback<F1Pilot>()
         ) {
-            onClick { it ->
-                view?.findNavController()?.navigate(R.id.detailF1PilotFragment, bundleOf("id" to it.id))
+            onClick { item, position ->
+                view?.findNavController()
+                    ?.navigate(R.id.detailF1PilotFragment, bundleOf("id" to item.id))
             }
         }
     }
