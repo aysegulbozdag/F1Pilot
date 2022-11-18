@@ -18,7 +18,7 @@ abstract class Database : RoomDatabase() {
                         db = Room.databaseBuilder(
                             context,
                             Database::class.java,
-                            "favCharacterDB"
+                            "F1PilotDB"
                         ).build()
                     }
                 }
