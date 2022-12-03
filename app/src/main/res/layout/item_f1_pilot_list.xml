@@ -10,9 +10,6 @@
         <variable
             name="viewModel"
             type="com.example.android.f1pilot.ui.main.F1PilotListViewModel" />
-        <variable
-            name="entity"
-            type="com.example.android.f1pilot.data.db.FavF1PilotEntity" />
     </data>
 
 <androidx.cardview.widget.CardView
@@ -79,11 +76,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:onClick="@{()->viewModel.addOrRemoveFav(viewData.id)}"
+            android:onClick="@{()->viewModel.addOrRemoveFav(viewData)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            loadFav="@{viewData.fav}" />
+            app:loadFav="@{viewData.isFav}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

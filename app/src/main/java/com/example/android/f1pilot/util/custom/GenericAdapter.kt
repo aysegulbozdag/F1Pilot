@@ -42,6 +42,7 @@ class ViewHolder<T : Any>(private val binding: ViewDataBinding,
         item = bindingItem
         binding.run {
             binding.setVariable(BR.viewData,bindingItem)
+            binding.setVariable(BR.viewModel,viewModel)
             executePendingBindings()
         }
     }

@@ -24,7 +24,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
             R.layout.item_f1_pilot_list,
             BaseDiffUtilItemCallback<F1Pilot>()
         ) {
-            onClick { item, position ->
+            onClick { item ->
                 view?.findNavController()
                     ?.navigate(R.id.detailF1PilotFragment, bundleOf("id" to item.id))
             }
@@ -33,6 +33,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
 
 
     override fun onFragmentStarted() {
+        getDataBinding().rvBank.findViewHolderForAdapterPosition(0)?.itemView?.findViewById(R.id.fav)
         getDataBinding().rvBank.adapter =adapter
        viewModel.f1PilotList.observe(this, Observer {
             when(it.status){
@@ -51,6 +52,17 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
 
         })
     }
+
+    /*override fun onResume() {
+        super.onResume()
+        viewLifecycleOwnerLiveData.observe(this){
+            viewModel.isClickFav.observe(this) {
+                if (it)
+                   adapter.notifyItemChanged(0)
+            }
+        }
+
+    }*/
 
     override fun getLayoutId(): Int = R.layout.fragment_main
     fun getViewModel(): Class<F1PilotListViewModel> = F1PilotListViewModel::class.java
