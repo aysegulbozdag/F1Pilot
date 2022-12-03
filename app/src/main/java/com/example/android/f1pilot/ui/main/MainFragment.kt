@@ -33,7 +33,6 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
 
 
     override fun onFragmentStarted() {
-        getDataBinding().rvBank.findViewHolderForAdapterPosition(0)?.itemView?.findViewById(R.id.fav)
         getDataBinding().rvBank.adapter =adapter
        viewModel.f1PilotList.observe(this, Observer {
             when(it.status){
@@ -53,7 +52,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
         })
     }
 
-    /*override fun onResume() {
+    override fun onResume() {
         super.onResume()
         viewLifecycleOwnerLiveData.observe(this){
             viewModel.isClickFav.observe(this) {
@@ -62,7 +61,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
             }
         }
 
-    }*/
+    }
 
     override fun getLayoutId(): Int = R.layout.fragment_main
     fun getViewModel(): Class<F1PilotListViewModel> = F1PilotListViewModel::class.java
