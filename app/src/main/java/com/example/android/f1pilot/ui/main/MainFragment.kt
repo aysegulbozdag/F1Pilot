@@ -63,6 +63,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
 
     }*/
 
+
     override fun getLayoutId(): Int = R.layout.fragment_main
     fun getViewModel(): Class<F1PilotListViewModel> = F1PilotListViewModel::class.java
     override val viewModel: F1PilotListViewModel by viewModels()
