@@ -3,7 +3,6 @@ package com.example.android.f1pilot.ui.main
 import android.util.Log
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.android.f1pilot.R
 import com.example.android.f1pilot.data.model.F1Pilot
@@ -33,23 +32,23 @@ class MainFragment : BaseFragment<FragmentMainBinding, F1PilotListViewModel>() {
 
 
     override fun onFragmentStarted() {
-        getDataBinding().rvBank.adapter =adapter
-       viewModel.f1PilotList.observe(this, Observer {
-            when(it.status){
-                Result.Status.SUCCESS ->{
+        getDataBinding().rvBank.adapter = adapter
+        viewModel.f1PilotList.observe(this) {
+            when (it.status) {
+                Result.Status.SUCCESS -> {
                     hideProgress()
                     adapter.submitList(it?.data?.items)
                 }
                 Result.Status.ERROR -> {
                     it.message?.let {
-                        Log.e("ERROR : " , it)
+                        Log.e("ERROR : ", it)
                     }
                     hideProgress()
                 }
                 Result.Status.LOADING -> showProgress()
             }
 
-        })
+        }
     }
 
    /* override fun onResume() {

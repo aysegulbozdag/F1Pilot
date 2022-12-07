@@ -11,7 +11,10 @@ interface FavF1PilotDao {
     suspend fun setFav(fav: F1Pilot)
 
     @Query("Select * from F1PilotTable WHERE id  = :id")
-    suspend fun getFavCharacter(id: Int): F1Pilot
+    suspend fun getFavCharacterById(id: Int): F1Pilot
+
+    @Query("Select * from F1PilotTable")
+    suspend fun getFavCharacter(): List<F1Pilot>
 
     @Query("Update F1PilotTable set isFav=:isFav where id = :id")
     suspend fun update(id: Int, isFav: Boolean)
